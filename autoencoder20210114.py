@@ -178,8 +178,34 @@ print(labelTi[4], label.count(labelTi[4])) #26523
 print(labelTi[5], label.count(labelTi[5])) #48591
 print(labelTi[6], label.count(labelTi[6])) #142
 
+len(pat19us)
+len(label)
+
+
+# export
+import pickle
+import gzip
+
+# save and compress.
+with gzip.open('corpusUs.pickle', 'wb') as f:
+    pickle.dump(corpus, f)
+
+
+with gzip.open('label.pickle', 'wb') as f:
+    pickle.dump(label, f)
+
+
+# load and uncompress.
+with gzip.open('corpusUs.pickle','rb') as f:
+    corpus = pickle.load(f)
+
+
+with gzip.open('label.pickle','rb') as f:
+    label = pickle.load(f)
+
 
 #ipc에 따른 카테고리 필요 (labeling) - done!
 #해당 카테고리에 대해서 Doc2vec 수행
 #Doc2vec 데이터에 대해서 AE 모델 훈련
+
 
